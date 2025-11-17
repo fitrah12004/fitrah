@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class PortofolioController extends Controller
 {
@@ -68,4 +69,9 @@ class PortofolioController extends Controller
 
         return view('contact', compact('title_top', 'title_main', 'description', 'socials'));
     }
+
+    public function welcome() {
+        return view('welcome'); // bisa diganti apa saja
+    }
+
 }
