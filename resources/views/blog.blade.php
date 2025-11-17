@@ -36,9 +36,10 @@
     <div class="max-w-7xl mx-auto px-6 flex justify-between items-center py-4">
         <a href="index.html" class="text-2xl font-bold"><span class="text-white">Port</span><span class="text-accent-red">folio</span></a>
         <div class="hidden md:flex space-x-8">
-            <a href="index.html" class="nav-link">Home</a>
-            <a href="blog.html" class="nav-link text-accent-red">Blog</a>
-            <a href="contact.html" class="nav-link">Contact</a>
+
+            <a href="/index" class="hover:text-accent-red transition">Home</a>
+            <a href="/blog" class="hover:text-accent-red transition">Blog</a>
+            <a href="/contact" class="hover:text-accent-red transition">Contact</a>
         </div>
     </div>
 </nav>
@@ -56,13 +57,13 @@
             <img src="{{ asset('image/foto1.jpeg') }}" alt="Antrivia Studio" class="w-full h-full object-contain">
         </div>
         <div class="p-8 text-center">
-            <h3 class="text-3xl font-semibold mb-4">
-                I'm an Electrical Engineering student at Makassar State University. 
-            </h3>
-            <p class="text-gray-400">
-                I'm interested in software development, AI, and digital technology. I utilize analytical, collaborative, 
-                and leadership skills to contribute to the technology world.
-            </p>
+        <h3 class="text-3xl font-semibold mb-4">
+            {{ $about_title }}
+        </h3>
+
+        <p class="text-gray-400">
+            {{ $about_desc }}
+        </p>
         </div>
     </div>
 
@@ -70,30 +71,16 @@
     <h3 class="text-3xl font-bold uppercase tracking-wider mb-10 border-b border-gray-800 pb-4">Soft Skills</h3>
 
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Card 1 -->
-        <div class="bg-dark-card rounded-2xl overflow-hidden border border-gray-800 hover-lift">
-           <img src="{{ asset('image/foto2.jpeg') }}" alt="Antrivia Studio" class="w-full h-full object-contain">
-            <div class="p-6">
-                <h5 class="text-xl font-semibold mb-4">Figma Design</h5>
+        @foreach ($skills as $skill)
+            <div class="bg-dark-card rounded-2xl overflow-hidden border border-gray-800 hover-lift">
+                <img src="{{ asset($skill['img']) }}" class="w-full h-full object-contain">
+                <div class="p-6 text-center">
+                    <h5 class="text-xl font-semibold mb-4">{{ $skill['title'] }}</h5>
+                </div>
             </div>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="bg-dark-card rounded-2xl overflow-hidden border border-gray-800 hover-lift">
-            <img src="{{ asset('image/foto4.jpeg') }}" alt="Antrivia Studio" class="w-full h-full object-contain">
-            <div class="p-6">
-                <h5 class="text-xl font-semibold mb-4">Canva Design</h5>
-            </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="bg-dark-card rounded-2xl overflow-hidden border border-gray-800 hover-lift">
-            <img src="{{ asset('image/foto3.jpeg') }}" alt="Antrivia Studio" class="w-full h-full object-contain">
-            <div class="p-6">
-                <h5 class="text-xl font-semibold mb-4">Capcut Editing</h5>
-            </div>
-        </div>
+        @endforeach
     </div>
+
 
 </section>
 
